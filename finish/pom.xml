@@ -27,7 +27,7 @@
             <dependency>
                 <groupId>io.openliberty.features</groupId>
                 <artifactId>features-bom</artifactId>
-                <version>18.0.0.2</version>
+                <version>RELEASE</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -149,6 +149,13 @@
                 </configuration>
                 <executions>
                     <execution>
+                        <id>install-liberty</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>install-server</goal>
+                        </goals>
+                    </execution>
+                    <execution>
                         <id>install-feature</id>
                         <phase>prepare-package</phase>
                         <goals>
@@ -159,13 +166,6 @@
                                 <acceptLicense>true</acceptLicense>
                             </features>
                         </configuration>
-                    </execution>
-                    <execution>
-                        <id>install-liberty</id>
-                        <phase>prepare-package</phase>
-                        <goals>
-                            <goal>install-server</goal>
-                        </goals>
                     </execution>
                     <execution>
                         <id>install-app</id>
